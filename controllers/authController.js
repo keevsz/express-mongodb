@@ -31,14 +31,16 @@ const registerUser = async (req, res) => {
       port: 2525,
       auth: {
         user: "46512fac742ee9",
-        pass: "d1ea4f40c960a4"
-      }
+        pass: "d1ea4f40c960a4",
+      },
     });
     await transport.sendMail({
       from: '"Fred Foo 👻" <foo@example.com>',
       to: user.email,
       subject: "verifique cuenta de correo",
-      html: `<a href="http://localhost:5000/auth/confirmarCuenta/${user.tokenConfirm}">verificar cuenta aquí</a>`,
+      html: `<a href="${
+        process.env.PATHHEROKU || "http://localhost:5000"
+      }/auth/confirmarCuenta/${user.tokenConfirm}">verificar cuenta aquí</a>`,
     });
 
     req.flash("mensajes", [{ msg: "Revisa tu correo y valida tu cuenta" }]);
