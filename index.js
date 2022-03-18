@@ -18,6 +18,8 @@ const corsOptions = {
   methods: ["GET", "POST"],
 };
 app.use(cors());
+
+app.use("trust proxy",1)
 app.use(
   session({
     secret: process.env.SECRETSESSION,
