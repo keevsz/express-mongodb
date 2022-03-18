@@ -1,0 +1,21 @@
+<h1>Registro de usuarios nuevos</h1>
+
+<form action="/auth/register" method="post">
+  <input type="text" name="userName" value="kevin" placeholder="Username" />
+  <input type="email" name="email" value="asd@gmail.com" placeholder="Email" />
+  <input
+    type="password"
+    name="password"
+    value="asdasd"
+    placeholder="Password"
+  />
+  <input type="hidden" name="_csrf" value="{{csrfToken}}" />
+
+  <input
+    type="password"
+    name="repassword"
+    value="asdasd"
+    placeholder="Repite password"
+  />
+  <button class="btn btn-success" type="submit">Registrar usuario</button>
+</form>
